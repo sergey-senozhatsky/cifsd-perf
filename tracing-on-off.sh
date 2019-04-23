@@ -4,6 +4,8 @@ cd /sys/kernel/debug/tracing/
 
 if [ "z$1" == "zon" ]; then
 	echo ':mod:cifsd' > set_ftrace_filter
+	echo 'sched*' >> set_ftrace_filter
+	echo 'bio*' >> set_ftrace_filter
 	echo 'cifsd*:mod:cifsd' >> set_ftrace_filter
 	echo 'smb*:mod:cifsd' >> set_ftrace_filter
 	echo function_graph > current_tracer
